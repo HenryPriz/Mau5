@@ -1,5 +1,4 @@
 'use strict';
-'use strict';
 var mouse_dpi = inputs.mouse_dpi
 var game_yaw = inputs.game_yaw
 var new_game_yaw = inputs.new_game_yaw
@@ -11,4 +10,4 @@ var find_sens = ((( (360*2.54) / find_rotate) /mouse_dpi) /new_game_yaw)
 
 return {found_sens: find_sens};
 
-https://jscalc.io/source/6xSIRq0XyO6G7UmM
+'https://jscalc.io/source/6xSIRq0XyO6G7UmM'
