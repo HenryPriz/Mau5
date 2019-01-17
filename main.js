@@ -5,10 +5,11 @@ function sensConv() {
     var orig_game_sens = document.getElementById("origGameSens").value;
     var new_game = document.getElementById("newGame").value;
 
-    var rotation = document.getElementById("rotat");
+    var rotation = document.getElementById("rotat").value;
 
     var game_yaw;
     var new_game_yaw;
+    var sens_incr;
 
     if (orig_game == "BFV") {
         game_yaw = 0.00598718344569206;
@@ -30,26 +31,38 @@ function sensConv() {
         new_game_yaw = (0.18/Math.PI)/10;
     }
 
-    var sens_incr = (orig_game_sens * game_yaw);
+    if (document.getElementById("advModeInp").checked) {
+        sens_incr = ( 360 / ( ( rotation / 2.54 ) * mouse_dpi ) );
+    } else {
+        sens_incr = (orig_game_sens * game_yaw);
+    }
+
     var find_rotate = (360 / sens_incr / mouse_dpi * 2.54);
     var find_sens = (sens_incr /new_game_yaw);
 
     document.getElementById("retSens").value = find_sens;
+    document.getElementById("rotatOut").value = find_rotate;
+    document.getElementById("incrOut").value = sens_incr;
+
 }
 
+function showAdvInp() {
+    var advOptionsDiv = document.getElementById("advOptionsInp")
+    if (document.getElementById("advModeInp").checked) {
+        advOptionsDiv.className = advOptionsDiv.style.removeProperty("advOptions");
+    } else {
+        advOptionsDiv.className = advOptionsDiv.style.add = "advOptions";
+    }
+}
 
-//var mouse_dpi = inputs.mouse_dpi
-//var game_yaw = inputs.game_yaw
-//var new_game_yaw = inputs.new_game_yaw
-//var user_sens = inputs.user_sens
-//var sens_incr = user_sens * game_yaw
-
-//var find_rotate = (360 / sens_incr / mouse_dpi * 2.54)
-//var find_sens = ((( (360*2.54) / find_rotate) /mouse_dpi) /new_game_yaw)
-
-//return {found_sens: find_sens};
-
-
+function showAdvOut() {
+    var advOptionsDiv = document.getElementById("advOptionsOut")
+    if (document.getElementById("advModeOut").checked) {
+        advOptionsDiv.className = advOptionsDiv.style.removeProperty("advOptions");
+    } else {
+        advOptionsDiv.className = advOptionsDiv.style.add = "advOptions";
+    }
+}
 
 
 //https://jscalc.io/source/6xSIRq0XyO6G7UmM

@@ -9,13 +9,36 @@ body {
     font-family: 'Roboto';
 }
 
+.mainBody {
+    background-color: #EE3D36;
+    margin:0 auto;
+    border-radius: 12px;
+    width: 600px;
+}
+
+.mainBody h2 {
+    max-height: 3%;
+    margin: 0;
+    margin-left: 6%;
+    padding-top: 3%;
+}
+
 .title h1 {
     font-family: 'Major Mono Display', monospace;
-    font-size: 3em;
+    font-size: 5em;
     text-align: center;
     margin: 0 auto;
     max-width: 400px;
     padding-top: 1%;
+}
+
+.title p {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 1em;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;;
+    padding-bottom: 3%;
 }
 
 .inputContainer label {
@@ -38,4 +61,13 @@ body {
 .inputFieldDrop option {
     background: #7C3728;
     color: inherit;
+}
+
+.inputData {
+    width: 100%;
+    margin-left: 6%;
+}
+
+.advOptions {
+    display: none
 }
