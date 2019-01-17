@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Roboto" rel="stylesheet"> 
-    <script type="text/javascript" src="main.js"></script>
+    <script src="main.js"></script>
 </head>
 <body>
     <div class="title">
@@ -12,12 +12,32 @@
     </div>
     <div class="mainBody">
         <div class="inputContainer">
-            <input type="text" class="inputField">
-            <input type="text" class="inputField">
+            <label for="origGame">Game to convert from:</label>
+            <select id="origGame" class="inputFieldDrop inputField">
+                <option value="BFV">Battlefield V (Ingame)</option>
+                <option value="CSGO">Counter Strike: GO</option>
+                <option value="OW">Overwatch</option>
+                <option value="R6S">Rainbow Six Siege (Ingame)</option>
+            </select>
+            <label for="origGameSens">In Game Sensitivity:</label>
+            <input type="number" step="0.001" id="origGameSens" class="inputField">
+            <label for="mouseDPI">Mouse DPI:</label>
+            <input type="number" id="mouseDPI" class="inputField">
+            <label for="newGame">Game to convert to:</label>
+            <select id="newGame" class="inputFieldDrop inputField">
+                <option value="BFV">Battlefield V (Ingame)</option>
+                <option value="CSGO">Counter Strike: GO</option>
+                <option value="OW">Overwatch</option>
+                <option value="R6S">Rainbow Six Siege (Ingame)</option>
+            </select>
+            <label for="rotat">cm/360:</label>
+            <input type="number" id="rotat" class="inputField">
         </div>
         <div class="outputContainer">
-
+            <label for="retSens">Your sens:</label>
+            <input type="text" id="retSens" class="inputField">
         </div>
+        <button onClick="sensConv()">Convert</button>
     </div>
 </body>
 </html>
