@@ -17,7 +17,7 @@ function sensConv() {
         game_yaw = 0.022;
     } else if (orig_game == "OW") {
         game_yaw = 0.0066;
-    } else if (orig_game == "R6S") {
+    } else if (orig_game == "R6S" || "R6SC") {
         game_yaw = (0.18/Math.PI)/10;
     }
 
@@ -27,7 +27,7 @@ function sensConv() {
         new_game_yaw = 0.022;
     } else if (new_game == "OW") {
         new_game_yaw = 0.0066;
-    } else if (new_game == "R6S") {
+    } else if (new_game == "R6S" || "R6SC") {
         new_game_yaw = (0.18/Math.PI)/10;
     }
 
@@ -56,11 +56,30 @@ function showAdvInp() {
 }
 
 function showAdvOut() {
-    var advOptionsDiv = document.getElementById("advOptionsOut")
+    var advOptionsDiv = document.getElementById("advOptionsOut");
     if (document.getElementById("advModeOut").checked) {
         advOptionsDiv.className = advOptionsDiv.style.removeProperty("advOptions");
     } else {
         advOptionsDiv.className = advOptionsDiv.style.add = "advOptions";
+    }
+}
+
+function checkAdv() {
+    var orig_game = document.getElementById("origGame").value;
+    var r6scmDiv = document.getElementById("R6CM");
+    var r6scxDiv = document.getElementById("R6CX");
+    var origDiv = document.getElementById("origGameSensOut");
+    if (orig_game == "R6SC") {
+        r6scmDiv.className = r6scmDiv.style.removeProperty("advOptions");
+        r6scxDiv.className = r6scxDiv.style.removeProperty("advOptions");
+        r6scmDiv.className = r6scmDiv.style.add = "inputData";
+        r6scxDiv.className = r6scxDiv.style.add = "inputData";
+        origDiv.className = origDiv.style.add = "advOptions";
+    } else {
+        r6scmDiv.className = r6scmDiv.style.add = "advOptions";
+        r6scxDiv.className = r6scxDiv.style.add = "advOptions";
+        origDiv.className = origDiv.style.removeProperty("advOptions");
+        origDiv.className = origDiv.style.add = "inputData";
     }
 }
 
