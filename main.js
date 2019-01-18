@@ -19,6 +19,11 @@ function sensConv() {
         game_yaw = 0.0066;
     } else if (orig_game == "R6S" || "R6SC") {
         game_yaw = (0.18/Math.PI)/10;
+    } 
+
+    if (orig_game == "R6SC") {
+        var multiplier = document.getElementById("R6Multi").value;
+        var orig_game_sens = ((multiplier * 50)/0.02);
     }
 
     if (new_game == "BFV") {
@@ -38,9 +43,15 @@ function sensConv() {
     }
 
     var find_rotate = (360 / sens_incr / mouse_dpi * 2.54);
-    var find_sens = (sens_incr /new_game_yaw);
 
-    document.getElementById("retSens").value = find_sens;
+    if (new_game == "R6SC") {
+        var find_sens = (((sens_incr / new_game_yaw) * 0.02) / 50)
+        document.getElementById("R6MultiOut").value = find_sens;
+    } else {
+        var find_sens = (sens_incr /new_game_yaw);
+        document.getElementById("retSens").value = find_sens;
+    }
+
     document.getElementById("rotatOut").value = find_rotate;
     document.getElementById("incrOut").value = sens_incr;
 
@@ -70,6 +81,25 @@ function checkAdv() {
     var r6scxDiv = document.getElementById("R6CX");
     var origDiv = document.getElementById("origGameSensOut");
     if (orig_game == "R6SC") {
+        r6scmDiv.className = r6scmDiv.style.removeProperty("advOptions");
+        r6scxDiv.className = r6scxDiv.style.removeProperty("advOptions");
+        r6scmDiv.className = r6scmDiv.style.add = "inputData";
+        r6scxDiv.className = r6scxDiv.style.add = "inputData";
+        origDiv.className = origDiv.style.add = "advOptions";
+    } else {
+        r6scmDiv.className = r6scmDiv.style.add = "advOptions";
+        r6scxDiv.className = r6scxDiv.style.add = "advOptions";
+        origDiv.className = origDiv.style.removeProperty("advOptions");
+        origDiv.className = origDiv.style.add = "inputData";
+    }
+}
+
+function checkAdvOut() {
+    var new_game = document.getElementById("newGame").value;
+    var r6scmDiv = document.getElementById("R6CMOut");
+    var r6scxDiv = document.getElementById("R6CXOut");
+    var origDiv = document.getElementById("retSensCont");
+    if (new_game == "R6SC") {
         r6scmDiv.className = r6scmDiv.style.removeProperty("advOptions");
         r6scxDiv.className = r6scxDiv.style.removeProperty("advOptions");
         r6scmDiv.className = r6scmDiv.style.add = "inputData";

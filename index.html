@@ -29,8 +29,8 @@
                 <input onchange="sensConv()" type="number" step="0.0000001" id="R6Multi" class="inputField">
             </div>
             <div id="R6CX" class="inputData advOptions">
-                    <label for="R6Xfac">XFactor:</label>
-                    <input onchange="sensConv()" type="number" step="0.0000001" id="R6Xfac" class="inputField">
+                <label for="R6Xfac">XFactor:</label>
+                <input onchange="sensConv()" type="number" step="0.0000001" id="R6Xfac" class="inputField">
             </div>
             <div id="origGameSensOut" class="inputData">
                 <label for="origGameSens">In Game Sensitivity:</label>
@@ -55,7 +55,7 @@
         <div class="outputContainer" style="padding-bottom:6%;">
             <div class="inputData">
                 <label for="newGame">Game to convert to:</label>
-                <select onchange="sensConv()" id="newGame" class="inputFieldDrop inputField">
+                <select onchange="sensConv(), checkAdvOut()" id="newGame" class="inputFieldDrop inputField">
                     <option value="BFV">Battlefield V (Ingame)</option>
                     <option value="CSGO">Counter Strike: GO</option>
                     <option value="OW">Overwatch</option>
@@ -63,24 +63,32 @@
                     <option value="R6SC">Rainbow Six Siege (Config)</option>
                 </select>
             </div>
-            <div class="inputData">
+            <div id="R6CMOut" class="inputData advOptions">
+                <label for="R6MultiOut">Multiplier:</label>
+                <input type="text" step="0.0000001" id="R6MultiOut" class="inputField">
+            </div>
+            <div id="R6CXOut" class="inputData advOptions">
+                    <label for="R6XfacOut">XFactor:</label>
+                    <input type="text" step="0.0000001" id="R6XfacOut" class="inputField">
+            </div>
+            <div id="retSensCont" class="inputData">
                 <label for="retSens">Your sens:</label>
                 <input type="text" id="retSens" class="inputField">
             </div>
             <div class="inputData">
-                    <label for="advModeOut">Advanced:</label>
-                    <input onchange="showAdvOut()" type="checkbox" id="advModeOut" style="min-width:0px;" class="inputField">
+                <label for="advModeOut">Advanced:</label>
+                <input onchange="showAdvOut()" type="checkbox" id="advModeOut" style="min-width:0px;" class="inputField">
             </div>
             <div id="advOptionsOut" class="advOptions">
-                    <div class="inputData">
-                        <label for="rotatOut">cm/360:</label>
-                        <input type="text" id="rotatOut" class="inputField">
-                    </div>
-                    <div class="inputData">
-                            <label for="incrOut">Increment:</label>
-                            <input type="text" id="incrOut" class="inputField">
-                    </div>
+                <div class="inputData">
+                    <label for="rotatOut">cm/360:</label>
+                    <input type="text" id="rotatOut" class="inputField">
                 </div>
+                <div class="inputData">
+                    <label for="incrOut">Increment:</label>
+                    <input type="text" id="incrOut" class="inputField">
+                </div>
+            </div>
         </div>
     </div>
 </body>
