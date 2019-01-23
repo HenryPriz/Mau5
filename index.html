@@ -9,7 +9,7 @@
 <body>
     <div class="title">
         <h1>Mau5</h1>
-        <p>v1.1</p>
+        <p>v1.11</p>
     </div>
     <div class="mainBody">
         <h2 style="padding-top:6%;">Input</h2>
@@ -75,6 +75,10 @@
                     <label for="R6XfacOut">XFactor:</label>
                     <input type="text" step="0.0000001" id="R6XfacOut" class="inputField">
             </div>
+            <div id="r6CXOut2" class="inputData advOptions">
+                <label for="R6SliderOut">In Game Sliders:</label>
+                <input type="text" step="1" id="R6SliderOut" value="50" class="inputField">
+            </div>
             <div id="aspctOut" class="inputData advOptions" style="max-width: 400px;">
                 <label for="aspctOutSel">Select Aspect Ratio:</label>
                 <select onchange="sensConv()" id="aspctOutSel" class="inputFieldDrop inputField">
@@ -93,7 +97,7 @@
             </div>
             <div id="retSensAdsCont" class="inputData advOptions">
                 <label for="retSensAds">Your ADS:</label>
-                <input type="text" id="retSensAds" class="inputField">
+                <input type="text" step="0.0000001" id="retSensAds" class="inputField">
             </div>
             <div class="inputData">
                 <label for="advModeOut">Advanced:</label>
