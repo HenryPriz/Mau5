@@ -9,32 +9,36 @@
 <body>
     <div class="title">
         <h1>Mau5</h1>
-        <p>v1.0</p>
+        <p>v1.1</p>
     </div>
     <div class="mainBody">
         <h2 style="padding-top:6%;">Input</h2>
         <div class="inputContainer">
             <div class="inputData">
                 <label for="origGame">Game to convert from:</label>
-                <select onchange="sensConv()" id="origGame" class="inputFieldDrop inputField">
+                <select onchange="sensConv(), checkAdv()" id="origGame" class="inputFieldDrop inputField">
                     <option value="BFV">Battlefield V (Ingame)</option>
                     <option value="CSGO">Counter Strike: GO</option>
                     <option value="OW">Overwatch</option>
                     <option value="R6S">Rainbow Six Siege (Ingame)</option>
+                    <option value="R6SC">Rainbow Six Siege (Config)</option>
                 </select>
             </div>
-            <div class="inputData">
-                <label for="origGameSens">In Game Sensitivity:</label>
+            <div id="R6CM" class="inputData advOptions">
+                <label for="R6Multi">Multiplier:</label>
+                <input onchange="sensConv()" type="number" step="0.0000001" id="R6Multi" class="inputField">
+            </div>
+            <div id="R6CX" class="inputData advOptions">
+                <label for="R6Xfac">XFactor:</label>
+                <input onchange="sensConv()" type="number" step="0.0000001" id="R6Xfac" class="inputField">
+            </div>
+            <div id="origGameSensOut" class="inputData">
+                <label for="origGameSens">In Game Hip Fire Sensitivity:</label>
                 <input onchange="sensConv()" type="number" step="0.001" id="origGameSens" class="inputField">        
             </div>
-            <div class="inputData">
-                <label for="newGame">Game to convert to:</label>
-                <select onchange="sensConv()" id="newGame" class="inputFieldDrop inputField">
-                    <option value="BFV">Battlefield V (Ingame)</option>
-                    <option value="CSGO">Counter Strike: GO</option>
-                    <option value="OW">Overwatch</option>
-                    <option value="R6S">Rainbow Six Siege (Ingame)</option>
-                </select>
+            <div id="origGameSensOutADS" class="inputData advOptions">
+                <label for="origGameSensADS">In Game ADS Sensitivity:</label>
+                <input onchange="sensConv()" type="number" step="0.001" id="origGameSensAds" class="inputField">
             </div>
             <div class="inputData">
                 <label for="advModeInp">Advanced Mode:</label>
@@ -54,23 +58,57 @@
         <h2>Output</h2>
         <div class="outputContainer" style="padding-bottom:6%;">
             <div class="inputData">
+                <label for="newGame">Game to convert to:</label>
+                <select onchange="sensConv(), checkAdvOut()" id="newGame" class="inputFieldDrop inputField">
+                    <option value="BFV">Battlefield V (Ingame)</option>
+                    <option value="CSGO">Counter Strike: GO</option>
+                    <option value="OW">Overwatch</option>
+                    <option value="R6S">Rainbow Six Siege (Ingame)</option>
+                    <option value="R6SC">Rainbow Six Siege (Config)</option>
+                </select>
+            </div>
+            <div id="r6CMOut" class="inputData advOptions">
+                <label for="R6MultiOut">Multiplier:</label>
+                <input type="text" step="0.0000001" id="R6MultiOut" class="inputField">
+            </div>
+            <div id="r6CXOut" class="inputData advOptions">
+                    <label for="R6XfacOut">XFactor:</label>
+                    <input type="text" step="0.0000001" id="R6XfacOut" class="inputField">
+            </div>
+            <div id="aspctOut" class="inputData advOptions" style="max-width: 400px;">
+                <label for="aspctOutSel">Select Aspect Ratio:</label>
+                <select onchange="sensConv()" id="aspctOutSel" class="inputFieldDrop inputField">
+                    <option value="43">4:3</option>
+                    <option value="169">16:9</option>
+                    <option value="219">21:9</option>
+                </select>
+                <div id="advCSRem">
+                    <label for="coeffBFV" onclick="window.alert('Uniform Soldier Aiming Coefficient ensures consistent aiming for muscle memory. Can be found in Advanced Settings.')">Uniform Coefficient:</label>
+                    <input type="text" step="1" id="coeffBFV" class="inputField">
+                </div>
+            </div>
+            <div id="retSensCont" class="inputData">
                 <label for="retSens">Your sens:</label>
                 <input type="text" id="retSens" class="inputField">
             </div>
+            <div id="retSensAdsCont" class="inputData advOptions">
+                <label for="retSensAds">Your ADS:</label>
+                <input type="text" id="retSensAds" class="inputField">
+            </div>
             <div class="inputData">
-                    <label for="advModeOut">Advanced:</label>
-                    <input onchange="showAdvOut()" type="checkbox" id="advModeOut" style="min-width:0px;" class="inputField">
+                <label for="advModeOut">Advanced:</label>
+                <input onchange="showAdvOut()" type="checkbox" id="advModeOut" style="min-width:0px;" class="inputField">
             </div>
             <div id="advOptionsOut" class="advOptions">
-                    <div class="inputData">
-                        <label for="rotatOut">cm/360:</label>
-                        <input type="text" id="rotatOut" class="inputField">
-                    </div>
-                    <div class="inputData">
-                            <label for="incrOut">Increment:</label>
-                            <input type="text" id="incrOut" class="inputField">
-                    </div>
+                <div class="inputData">
+                    <label for="rotatOut">cm/360:</label>
+                    <input type="text" id="rotatOut" class="inputField">
                 </div>
+                <div class="inputData">
+                    <label for="incrOut">Increment:</label>
+                    <input type="text" id="incrOut" class="inputField">
+                </div>
+            </div>
         </div>
     </div>
 </body>
