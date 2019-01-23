@@ -52,6 +52,18 @@ function sensConv() {
         document.getElementById("retSens").value = find_sens;
     }
 
+    var aspctOutVal = document.getElementById("aspctOutSel").value;
+    var coeffVal
+
+    if (aspctOutVal == "43") {
+        coeffVal = 133;
+    } else if (aspctOutVal == "169") {
+        coeffVal = 178;
+    } else if (aspctOutVal == "219") {
+        coeffVal = 233;
+    }
+
+    document.getElementById("coeffBFV").value = coeffVal;
     document.getElementById("rotatOut").value = find_rotate;
     document.getElementById("incrOut").value = sens_incr;
 
@@ -96,20 +108,27 @@ function checkAdv() {
 
 function checkAdvOut() {
     var new_game = document.getElementById("newGame").value;
-    var r6scmDiv = document.getElementById("R6CMOut");
-    var r6scxDiv = document.getElementById("R6CXOut");
-    var origDiv = document.getElementById("retSensCont");
+    var r6scmDiv = document.getElementById("r6CMOut");
+    var r6scxDiv = document.getElementById("r6CXOut");
+    var origR6Div = document.getElementById("retSensCont");
+    var aspectBFDiv = document.getElementById("aspctOut");
     if (new_game == "R6SC") {
         r6scmDiv.className = r6scmDiv.style.removeProperty("advOptions");
         r6scxDiv.className = r6scxDiv.style.removeProperty("advOptions");
         r6scmDiv.className = r6scmDiv.style.add = "inputData";
         r6scxDiv.className = r6scxDiv.style.add = "inputData";
-        origDiv.className = origDiv.style.add = "advOptions";
+        origR6Div.className = origR6Div.style.add = "advOptions";
     } else {
         r6scmDiv.className = r6scmDiv.style.add = "advOptions";
         r6scxDiv.className = r6scxDiv.style.add = "advOptions";
-        origDiv.className = origDiv.style.removeProperty("advOptions");
-        origDiv.className = origDiv.style.add = "inputData";
+        origR6Div.className = origR6Div.style.removeProperty("advOptions");
+        origR6Div.className = origR6Div.style.add = "inputData";
+    }
+    if (new_game == "BFV") {
+        aspectBFDiv.className = aspectBFDiv.style.removeProperty("advOptions");
+        aspectBFDiv.className = aspectBFDiv.style.add = "inputData";
+    } else {
+        aspectBFDiv.className = aspectBFDiv.style.add = "advOptions";
     }
 }
 

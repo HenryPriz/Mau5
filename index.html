@@ -63,13 +63,23 @@
                     <option value="R6SC">Rainbow Six Siege (Config)</option>
                 </select>
             </div>
-            <div id="R6CMOut" class="inputData advOptions">
+            <div id="r6CMOut" class="inputData advOptions">
                 <label for="R6MultiOut">Multiplier:</label>
                 <input type="text" step="0.0000001" id="R6MultiOut" class="inputField">
             </div>
-            <div id="R6CXOut" class="inputData advOptions">
+            <div id="r6CXOut" class="inputData advOptions">
                     <label for="R6XfacOut">XFactor:</label>
                     <input type="text" step="0.0000001" id="R6XfacOut" class="inputField">
+            </div>
+            <div id="aspctOut" class="inputData advOptions" style="max-width: 400px;">
+                <label for="aspctOutSel">Select Aspect Ratio:</label>
+                <select onchange="sensConv()" id="aspctOutSel" class="inputFieldDrop inputField">
+                    <option value="43">4:3</option>
+                    <option value="169">16:9</option>
+                    <option value="219">21:9</option>
+                </select>
+                <label for="coeffBFV" onclick="window.alert('Uniform Soldier Aiming Coefficient ensures consistent aiming for muscle memory. Can be found in Advanced Settings.')">Uniform Coefficient:</label>
+                <input type="text" step="1" id="coeffBFV" class="inputField">
             </div>
             <div id="retSensCont" class="inputData">
                 <label for="retSens">Your sens:</label>
