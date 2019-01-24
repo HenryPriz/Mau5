@@ -69,6 +69,30 @@ function sensConv() {
         new_game_yaw = 0.0066;
     } else if (new_game == "R6S" || "R6SC") {
         new_game_yaw = (0.18/Math.PI)/10;
+    } else if (new_game == "BF3") {
+        new_game_yaw = (0.52941);
+    } else if (new_game == "BL2") {
+        new_game_yaw = (0.0055);
+    } else if (new_game == "BO4") {
+        new_game_yaw = (0.0066);
+    } else if (new_game == "D2") {
+        new_game_yaw = (0.0066);
+    } else if (new_game == "DNF") {
+        new_game_yaw = (1.714);
+    } else if (new_game == "FN") {
+        new_game_yaw = (0.5715);
+    } else if (new_game == "PS2") {
+        new_game_yaw = (0.36);
+    } else if (new_game == "PUBG") {
+        new_game_yaw = (2.22222);
+    } else if (new_game == "Q3") {
+        new_game_yaw = (0.022);
+    } else if (new_game == "QL") {
+        new_game_yaw = (0.022);
+    } else if (new_game == "UT") {
+        new_game_yaw = (0.0596);
+    } else if (new_game == "TF2") {
+        new_game_yaw = (0.022);
     }
 
     if (document.getElementById("advModeInp").checked) {
