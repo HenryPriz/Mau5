@@ -17,6 +17,7 @@
             <div class="inputData">
                 <label for="origGame">Game to convert from:</label>
                 <select onchange="sensConv(), checkAdv()" id="origGame" class="inputFieldDrop inputField">
+                    <option value="APXL">Apex Legends</option>
                     <option value="BF3">Battlefield 3 & 4</option>
                     <option value="BFV">Battlefield V (Ingame)</option>
                     <option value="BL2">Borderlands 2</option>
@@ -27,7 +28,7 @@
                     <option value="FN">Fortnite</option>
                     <option value="OW">Overwatch</option>
                     <option value="PS2">Planet Side 2</option>
-                    <option value="PUBG">PUBG</option>
+                    <!-- <option value="PUBG">PUBG</option> -->
                     <option value="Q3">Quake 3</option>
                     <option value="QL">Quake Live</option>
                     <option value="R6S">Rainbow Six Siege (Ingame)</option>
@@ -50,7 +51,7 @@
             </div>
             <div id="origGameSensOutADS" class="inputData advOptions">
                 <label for="origGameSensADS">In Game ADS Sensitivity:</label>
-                <input onchange="sensConv()" type="number" step="0.001" id="origGameSensAds" class="inputField">
+                <input onchange="sensConv()" type="number" step="0.0000001" id="origGameSensAds" class="inputField">
             </div>
             <div class="inputData">
                 <label for="advModeInp">Advanced Mode:</label>
@@ -72,6 +73,7 @@
             <div class="inputData">
                 <label for="newGame">Game to convert to:</label>
                 <select onchange="sensConv(), checkAdvOut()" id="newGame" class="inputFieldDrop inputField">
+                    <option value="APXL">Apex Legends</option>
                     <option value="BF3">Battlefield 3 & 4</option>
                     <option value="BFV">Battlefield V (Ingame)</option>
                     <option value="BL2">Borderlands 2</option>
@@ -82,7 +84,7 @@
                     <option value="FN">Fortnite</option>
                     <option value="OW">Overwatch</option>
                     <option value="PS2">Planet Side 2</option>
-                    <option value="PUBG">PUBG</option>
+                    <!-- <option value="PUBG">PUBG</option> -->
                     <option value="Q3">Quake 3</option>
                     <option value="QL">Quake Live</option>
                     <option value="R6S">Rainbow Six Siege (Ingame)</option>
