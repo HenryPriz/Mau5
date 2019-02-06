@@ -5,6 +5,7 @@ function sensConv() {
     var orig_game_sens = document.getElementById("origGameSens").value;
     var orig_game_sens_ads = document.getElementById("origGameSensAds").value;
     var new_game = document.getElementById("newGame").value;
+    var xfacMulti = document.getElementById("R6Xfac").value;
 
     var rotation = document.getElementById("rotat").value;
 
@@ -30,10 +31,37 @@ function sensConv() {
         game_yaw = 0.0066;
     } else if (orig_game == "R6S" || orig_game == "R6SC") {
         game_yaw = (0.18/Math.PI)/10;
-    } 
+    } else if (orig_game == "BF3") {
+        game_yaw = 0.52941;
+    } else if (orig_game == "BL2") {
+        game_yaw = 0.0055;
+    } else if (orig_game == "BO4") {
+        game_yaw = 0.0066;
+    } else if (orig_game == "D2") {
+        game_yaw = 0.0066;
+    } else if (orig_game == "DNF") {
+        game_yaw = 1.714;
+    } else if (orig_game == "FN") {
+        game_yaw = 0.5715;
+    } else if (orig_game == "PS2") {
+        game_yaw = 0.36;
+    } else if (orig_game == "PUBG") {
+        game_yaw = 2.22222;
+    } else if (orig_game == "Q3") {
+        game_yaw = 0.022;
+    } else if (orig_game == "QL") {
+        game_yaw = 0.022;
+    } else if (orig_game == "UT") {
+        game_yaw = 0.0596;
+    } else if (orig_game == "TF2") {
+        game_yaw = 0.022;
+    } else if (orig_game == "APXL") {
+        game_yaw = 0.022;
+    }
 
     if (orig_game == "R6SC") {
         var multiplier = document.getElementById("R6Multi").value;
+        
         var orig_game_sens = ((multiplier * 50)/0.02);
     }
 
@@ -43,8 +71,34 @@ function sensConv() {
         new_game_yaw = 0.022;
     } else if (new_game == "OW") {
         new_game_yaw = 0.0066;
-    } else if (new_game == "R6S" || "R6SC") {
+    } else if (new_game == "R6S" || new_game == "R6SC") {
         new_game_yaw = (0.18/Math.PI)/10;
+    } else if (new_game == "BF3") {
+        new_game_yaw = 0.52941;
+    } else if (new_game == "BL2") {
+        new_game_yaw = 0.0055;
+    } else if (new_game == "BO4") {
+        new_game_yaw = 0.0066;
+    } else if (new_game == "D2") {
+        new_game_yaw = 0.0066;
+    } else if (new_game == "DNF") {
+        new_game_yaw = 1.714;
+    } else if (new_game == "FN") {
+        new_game_yaw = 0.5715;
+    } else if (new_game == "PS2") {
+        new_game_yaw = 0.36;
+    } else if (new_game == "PUBG") {
+        new_game_yaw = 2.22222;
+    } else if (new_game == "Q3") {
+        new_game_yaw = 0.022;
+    } else if (new_game == "QL") {
+        new_game_yaw = 0.022;
+    } else if (new_game == "UT") {
+        new_game_yaw = 0.0596;
+    } else if (new_game == "TF2") {
+        new_game_yaw = 0.022;
+    } else if (new_game == "APXL") {
+        new_game_yaw = 0.022;
     }
 
     if (document.getElementById("advModeInp").checked) {
@@ -83,6 +137,8 @@ function sensConv() {
     horiz_width = (Math.atan((Math.tan(36.8695/(Math.PI /180)) * (coeffVal/100)) / (Math.PI /180))) / (Math.PI /180);
     if (orig_game == "R6S") {
         ads_sens_incr = (orig_game_sens_ads * 0.02 * orig_game_sens) * game_yaw;
+    } else if (orig_game == "R6SC") {
+        ads_sens_incr = (orig_game_sens_ads * xfacMulti * orig_game_sens) * game_yaw;
     }
      
     if (new_game == "CSGO") {
@@ -90,7 +146,6 @@ function sensConv() {
         current_cs_ratio_scope = (current_cs_ratio_scope / (40/90))
         current_ads_sens_incr = ((current_cs_ratio_scope * find_sens) * 0.022);
         new_ads_sens_incr_multi = (ads_sens_incr / current_ads_sens_incr);
-        console.log(new_ads_sens_incr_multi);
         find_sens_ads = (new_ads_sens_incr_multi * current_cs_ratio_scope);
     }
 
@@ -120,28 +175,21 @@ function showAdvOut() {
 }
 
 function checkAdv() {
+    var orig_game_ads = document.getElementById("origGameSensOutADS");
     var orig_game = document.getElementById("origGame").value;
     var r6scmDiv = document.getElementById("R6CM");
     var r6scxDiv = document.getElementById("R6CX");
-    var origDiv = document.getElementById("origGameSensOut");
-    var origDivADS = document.getElementById("origGameSensOutADS");
+
     if (orig_game == "R6SC") {
         r6scmDiv.className = r6scmDiv.style.removeProperty("advOptions");
         r6scxDiv.className = r6scxDiv.style.removeProperty("advOptions");
+        orig_game_ads.className = orig_game_ads.style.removeProperty("advOptions")
         r6scmDiv.className = r6scmDiv.style.add = "inputData";
         r6scxDiv.className = r6scxDiv.style.add = "inputData";
-        origDiv.className = origDiv.style.add = "advOptions";
+        orig_game_ads.className = orig_game_ads.add = ("inputData")
     } else {
         r6scmDiv.className = r6scmDiv.style.add = "advOptions";
         r6scxDiv.className = r6scxDiv.style.add = "advOptions";
-        origDiv.className = origDiv.style.removeProperty("advOptions");
-        origDiv.className = origDiv.style.add = "inputData";
-    }
-    if (orig_game == "R6S") {
-        origDivADS.className = origDivADS.style.removeProperty("advOptions");
-        origDivADS.className = origDivADS.style.add = "inputData";
-    } else {
-        origDivADS.className = origDivADS.style.add = "advOptions";
     }
 }
 
@@ -149,13 +197,16 @@ function checkAdvOut() {
     var new_game = document.getElementById("newGame").value;
     var r6scmDiv = document.getElementById("r6CMOut");
     var r6scxDiv = document.getElementById("r6CXOut");
+    var r6scxSDiv = document.getElementById("r6CXOut2")
     var origR6Div = document.getElementById("retSensCont");
     var aspectBFDiv = document.getElementById("aspctOut");
     if (new_game == "R6SC") {
         r6scmDiv.className = r6scmDiv.style.removeProperty("advOptions");
         r6scxDiv.className = r6scxDiv.style.removeProperty("advOptions");
+        r6scxSDiv.className = r6scxDiv.style.removeProperty("advOptions");
         r6scmDiv.className = r6scmDiv.style.add = "inputData";
         r6scxDiv.className = r6scxDiv.style.add = "inputData";
+        r6scxSDiv.className = r6scxDiv.style.add = "inputData";
         origR6Div.className = origR6Div.style.add = "advOptions";
     } else {
         r6scmDiv.className = r6scmDiv.style.add = "advOptions";
