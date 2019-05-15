@@ -38,10 +38,10 @@
             </select>
             <p class="inpElement">SENSITIVITY:</p>
             <input id="inpGameSens" type="number" onchange="conv()">
+            <p class="inpElement" id="labelDPI">DPI:</p>
+            <input id="inpDPI" type="number" onchange="conv()">
             <p class="inpElement">ADVANCED:</p>
             <input id="leftAdv" type="checkbox" onchange="advInpSel()">
-            <p class="inpElement" id="labelDPI" style="display:none;">DPI:</p>
-            <input id="inpDPI" type="number" style="display:none;" onchange="advInp()">
             <p class="inpElement" id="labelInp360" style="display:none;">CM/360:</p>
             <input id="inpCM360" type="number" style="display:none;" onchange="advInp()">
         </div>
@@ -68,13 +68,13 @@
                 <option value="10">Unreal Tournament</option>
             </select>
             <p class="inpElement">SENSITIVITY:</p>
-            <input id="outGameSens" type="number" class="elementNum" onchange="conv()">
+            <input id="outGameSens" type="text" class="elementNum" onchange="conv()">
             <p class="inpElement">ADVANCED:</p>
-            <input id="rightAdv" type="checkbox" onchange="conv()">
-            <p class="inpElement" style="display:none;">CM/360:</p>
-            <input id="outCM360" type="number" style="display:none;" onchange="conv()">
-            <p class="inpElement" style="display:none;">INCREMENT:</p>
-            <input id="outIncrement" type="number" style="display:none;" onchange="conv()">
+            <input id="rightAdv" type="checkbox" onchange="advOutSel()">
+            <p class="inpElement" id="labelOut360" style="display:none;">CM/360:</p>
+            <input id="outCM360" type="text" style="display:none;">
+            <p class="inpElement" id="labelOutIncr" style="display:none;">INCREMENT:</p>
+            <input id="outIncrement" type="text" style="display:none;">
         </div>
     </div>
 </body>

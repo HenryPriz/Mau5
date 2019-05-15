@@ -34,6 +34,10 @@ function hipConv(userOrigSens, userOrigGameVal, userDesGameVal)  {
     var userSensIncr = (userOrigSens * userOrigGameRotat);
     var newHipSens = (userSensIncr / userDesGameRotat);
 
+    var userNew360 = (360 / userSensIncr / document.getElementById("inpDPI").value * 2.54);
+
+    document.getElementById("outIncrement").value = userSensIncr;
+    document.getElementById("outCM360").value = userNew360;
     document.getElementById("outGameSens").value = newHipSens;
 }
 
@@ -45,15 +49,32 @@ function adsConv() {
 function advInpSel() {
     if (document.getElementById("leftAdv").checked) {
         document.getElementById("inpGameSens").disabled = true;
-        document.getElementById("labelDPI").style.display = null;
-        document.getElementById("inpDPI").style.display = null;
         document.getElementById("labelInp360").style.display = null;
         document.getElementById("inpCM360").style.display = null;
+        document.getElementById("lInputGame").setAttribute('onchange','hipConv()');
+        document.getElementById("outGameSens").setAttribute('onchange', 'hipConv()');
+        document.getElementById("inpDPI").setAttribute('onchange','hipConv()');
     } else if (!document.getElementById("leftAdv").checked) {
         document.getElementById("inpGameSens").disabled = false;
-        document.getElementById("labelDPI").style.display = 'none';
-        document.getElementById("inpDPI").style.display = 'none';
         document.getElementById("labelInp360").style.display = 'none';
         document.getElementById("inpCM360").style.display = 'none';
+        document.getElementById("lInputGame").setAttribute('onchange','conv()');
+        document.getElementById("outGameSens").setAttribute('onchange', 'conv()');
+        document.getElementById("inpDPI").setAttribute('onchange','conv()');
+    }
+}
+
+function advOutSel() {
+    if (document.getElementById("rightAdv").checked) {
+        document.getElementById("labelOut360").style.display = null;
+        document.getElementById("outCM360").style.display = null;
+        document.getElementById("labelOutIncr").style.display = null;
+        document.getElementById("outIncrement").style.display = null;
+        advInp();
+    } else if (!document.getElementById("rightAdv").checked) {
+        document.getElementById("labelOut360").style.display = 'none';
+        document.getElementById("outCM360").style.display = 'none';
+        document.getElementById("labelOutIncr").style.display = 'none';
+        document.getElementById("outIncrement").style.display = 'none';
     }
 }
