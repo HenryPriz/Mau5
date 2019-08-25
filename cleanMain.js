@@ -32,9 +32,16 @@ function hipConv(userOrigSens, userOrigGameVal, userDesGameVal)  {
     var userDesGameRotat = rotators[userDesGameVal];
 
     var userSensIncr = (userOrigSens * userOrigGameRotat);
+
     var newHipSens = (userSensIncr / userDesGameRotat);
 
     var userNew360 = (360 / userSensIncr / document.getElementById("inpDPI").value * 2.54);
+
+    if (document.getElementById("rightAdv").checked && document.getElementById("rightDpiAdv").checked) {
+        var newSensIncr = (360 / ( ( userNew360 / 2.54) * document.getElementById("outDPI").value));
+        newHipSens = (newSensIncr / userDesGameRotat);
+        userNew360 = (360 / newSensIncr / document.getElementById("outDPI").value * 2.54);
+    }
 
     document.getElementById("outIncrement").value = userSensIncr;
     document.getElementById("outCM360").value = userNew360;
@@ -70,11 +77,26 @@ function advOutSel() {
         document.getElementById("outCM360").style.display = null;
         document.getElementById("labelOutIncr").style.display = null;
         document.getElementById("outIncrement").style.display = null;
+        document.getElementById("rightDpiAdv").style.display = null;
+        document.getElementById("dpiConvOpt").style.display = null;
         advInp();
     } else if (!document.getElementById("rightAdv").checked) {
         document.getElementById("labelOut360").style.display = 'none';
         document.getElementById("outCM360").style.display = 'none';
         document.getElementById("labelOutIncr").style.display = 'none';
         document.getElementById("outIncrement").style.display = 'none';
+        document.getElementById("rightDpiAdv").style.display = 'none';
+        document.getElementById("dpiConvOpt").style.display = 'none';
+    }
+}
+
+function advOutDpiSel() {
+    if (document.getElementById("rightDpiAdv").checked) {
+        document.getElementById("labelNewDPI").style.display = null;
+        document.getElementById("outDPI").style.display = null;
+        advInp();
+    } else if (!document.getElementById("rightDpiAdv").checked) {
+        document.getElementById("labelNewDPI").style.display = 'none';
+        document.getElementById("outDPI").style.display = 'none';
     }
 }

@@ -9,7 +9,7 @@
 <body>
     <div class="titleTop">
         <h1>MAU5</h1>
-        <h2>V2.0</h2>
+        <h2>V2.1</h2>
         <h2 class="inpOut" style="float: left;">INPUT</h2>
         <h2 class="inpOut" style="float: right;">OUTPUT</h2>
     </div>
@@ -75,6 +75,10 @@
             <input id="outCM360" type="text" style="display:none;">
             <p class="inpElement" id="labelOutIncr" style="display:none;">INCREMENT:</p>
             <input id="outIncrement" type="text" style="display:none;">
+            <p id="dpiConvOpt" style="display:none;" class="inpElement">Convert to new DPI:</p>
+            <input id="rightDpiAdv" type="checkbox" style="display:none;" onchange="advOutDpiSel()">
+            <p class="inpElement" id="labelNewDPI" style="display:none;" >DPI:</p>
+            <input id="outDPI" type="number" onchange="conv()" style="display:none;">
         </div>
     </div>
 </body>
